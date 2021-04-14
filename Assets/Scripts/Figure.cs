@@ -11,7 +11,7 @@ public class Figure : MonoBehaviour
 public enum Type
 {
     Bishop,
-    Horse,
+    Knight,
     King,
     Pawn,
     Queen,
