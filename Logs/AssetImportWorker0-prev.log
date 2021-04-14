@@ -1,0 +1,574 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.0f1 (c7b5465681fb) revision 13088070'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.906; Version 2009; 64bit' Language: 'ru' Physical Memory: 8042 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Work/Chess
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+59179
+Successfully changed project path to: D:/Work/Chess
+D:/Work/Chess
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 23.82 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.0f1 (c7b5465681fb)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Work/Chess/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce MX250 (ID=0x1d13)
+    Vendor:   
+    VRAM:     1983 MB
+    Driver:   27.21.14.6140
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56356
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003358 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 25.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.728 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000614 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.969 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1113 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.9 MB.
+System memory in use after: 56.9 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1555.
+Total: 2.177200 ms (FindLiveObjects: 0.233500 ms CreateObjectMapping: 0.125700 ms MarkObjects: 1.702400 ms  DeleteObjects: 0.114300 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Tiny Chess Stone Chess Piece
+  artifactKey: Guid(c070c74315e554046821a02ce3b49088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece using Guid(c070c74315e554046821a02ce3b49088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20228abe0e1ec15b4afe312fc2be90ea') in 0.011489 seconds
+  Import took 0.013435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.000015 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece
+  artifactKey: Guid(c070c74315e554046821a02ce3b49088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece using Guid(c070c74315e554046821a02ce3b49088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20228abe0e1ec15b4afe312fc2be90ea') in 0.004662 seconds
+  Import took 0.007970 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.340649 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Models/Chess piece
+  artifactKey: Guid(ccf275bf8405e674a9d974a2b5878417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Models/Chess piece using Guid(ccf275bf8405e674a9d974a2b5878417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfa534631668035aacc05b278381eb3b') in 0.010969 seconds
+  Import took 0.013831 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.272562 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Models/Environment
+  artifactKey: Guid(2a11e59f39dd47a469aa59a99b530e78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Models/Environment using Guid(2a11e59f39dd47a469aa59a99b530e78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66712d23b0095ce8be1fe334b454d89f') in 0.009585 seconds
+  Import took 0.033943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.748314 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab
+  artifactKey: Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab using Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a3f089a0a6214162b101538075ccbf3') in 0.383893 seconds
+  Import took 0.386431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.675851 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0939a6c9beb0d9084e5dcc8b498f0085') in 0.034810 seconds
+  Import took 0.059441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.394887 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece
+  artifactKey: Guid(9813f1b5a122f864888d295fd131f8ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece using Guid(9813f1b5a122f864888d295fd131f8ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5160a69b94b2bec7def0e1cd21a5045') in 0.001662 seconds
+  Import took 0.003955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.304424 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Bishop Icon.prefab
+  artifactKey: Guid(f49ad24bab8a7ac43806f52712a5c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Bishop Icon.prefab using Guid(f49ad24bab8a7ac43806f52712a5c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b088c067a6c6d8a87ef74b2bc5519500') in 0.026368 seconds
+  Import took 0.053524 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001868 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Bishop Icon.prefab
+  artifactKey: Guid(f49ad24bab8a7ac43806f52712a5c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Bishop Icon.prefab using Guid(f49ad24bab8a7ac43806f52712a5c9dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b088c067a6c6d8a87ef74b2bc5519500') in 0.028285 seconds
+  Import took 0.032619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.620053 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black King Icon.prefab
+  artifactKey: Guid(2e9d1d260710b944482d8c6cefbfc074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black King Icon.prefab using Guid(2e9d1d260710b944482d8c6cefbfc074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '965d3af06449d99d508fca4af2821cd1') in 0.020657 seconds
+  Import took 0.084177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.504077 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Rook Icon.prefab
+  artifactKey: Guid(2939ec6a2e1a67543b5f5ee2f887b6bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Rook Icon.prefab using Guid(2939ec6a2e1a67543b5f5ee2f887b6bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85b67778595d4c3fbbc0b3c1ff9d36f5') in 0.021421 seconds
+  Import took 0.023944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.667162 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Horse Icon.prefab
+  artifactKey: Guid(18daad8374bd4c1448810837ce81b5a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Horse Icon.prefab using Guid(18daad8374bd4c1448810837ce81b5a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f6236b1a8dc4969a7827c12f2a50f36') in 0.021584 seconds
+  Import took 0.023758 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.544700 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Pawn Icon.prefab
+  artifactKey: Guid(3bdde54bfc9a6fb478530500531a9618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Pawn Icon.prefab using Guid(3bdde54bfc9a6fb478530500531a9618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e93f873e1fb12e921e9ef6fb7fb36714') in 0.021440 seconds
+  Import took 0.068035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.447248 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Rook Icon.prefab
+  artifactKey: Guid(d6be2d0f4d8bd7d4fafe253704064ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Rook Icon.prefab using Guid(d6be2d0f4d8bd7d4fafe253704064ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f26986af136872429f90c869d406cd1') in 0.021254 seconds
+  Import took 0.149199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.936639 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Queen Icon.prefab
+  artifactKey: Guid(54f2aa9d526db654ca462dab8afef72c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/White Queen Icon.prefab using Guid(54f2aa9d526db654ca462dab8afef72c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '086632e0ebf71068dd46e67762cf47af') in 0.021773 seconds
+  Import took 0.024491 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.027520 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Pawn Icon .prefab
+  artifactKey: Guid(b53bc0bdeda8e3749b21b6578b24b7d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Pawn Icon .prefab using Guid(b53bc0bdeda8e3749b21b6578b24b7d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b18dc9e66e7f834a80582cc659d265eb') in 0.021935 seconds
+  Import took 0.024085 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.705025 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Horse Icon.prefab
+  artifactKey: Guid(52c2e4afe6a5d1940a1455bdabe77515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Icons/Black Horse Icon.prefab using Guid(52c2e4afe6a5d1940a1455bdabe77515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552156aeb1bb041677b825bf79979671') in 0.015878 seconds
+  Import took 0.018143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 409.085253 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Demo.unity
+  artifactKey: Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Demo.unity using Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef167f0abd1adf3b6ec02c105a054e52') in 0.007268 seconds
+  Import took 0.009427 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 515.524090 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Environment
+  artifactKey: Guid(e94d379f108f62e4a8f92fd862d24972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Environment using Guid(e94d379f108f62e4a8f92fd862d24972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '802c22dc6e7074788b6b1b4313f8a0b0') in 0.003179 seconds
+  Import took 0.009924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.350597 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Horse.prefab
+  artifactKey: Guid(4957843483d9e93419739a06271621fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Horse.prefab using Guid(4957843483d9e93419739a06271621fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6b480e38f2785ba2e78ab10ba76a963') in 0.042332 seconds
+  Import took 0.062063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.376250 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone King.prefab
+  artifactKey: Guid(7e745f9e6c5f96f4ea60c54463617e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone King.prefab using Guid(7e745f9e6c5f96f4ea60c54463617e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c707703ef9a6bed9e101c899391e35c4') in 0.072028 seconds
+  Import took 0.074837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.362052 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Queen.prefab
+  artifactKey: Guid(917989983511f0d4d90029c6471236be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Queen.prefab using Guid(917989983511f0d4d90029c6471236be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e40080636cad5a2f592777d8586d7e7f') in 0.075154 seconds
+  Import took 0.077948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.348756 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Rook.prefab
+  artifactKey: Guid(62c53adad025f164292e09c4a5790a77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Rook.prefab using Guid(62c53adad025f164292e09c4a5790a77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c83c2f19ceef324ca198c84ba80cb40') in 0.018808 seconds
+  Import took 0.030775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.404106 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Bishop.prefab
+  artifactKey: Guid(9ddda65c1c1654147bbbdbdfcdb4881f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Bishop.prefab using Guid(9ddda65c1c1654147bbbdbdfcdb4881f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6e77132e72336b1727e618445d3f1f2') in 0.018387 seconds
+  Import took 0.021581 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.469200 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab
+  artifactKey: Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab using Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45867963f118e017f5c23f87547b8820') in 0.019290 seconds
+  Import took 0.022711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.405607 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab
+  artifactKey: Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab using Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f4e4a29b7cee3d59533f66b98b65ea') in 0.027046 seconds
+  Import took 0.046246 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003263 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab
+  artifactKey: Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab using Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f4e4a29b7cee3d59533f66b98b65ea') in 0.017551 seconds
+  Import took 0.023526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.399072 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Queen.prefab
+  artifactKey: Guid(03825e973280c7e4788ee0d1339abcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Queen.prefab using Guid(03825e973280c7e4788ee0d1339abcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ab75e34bcd79fa4b4ebc3deca113e7a') in 0.018695 seconds
+  Import took 0.021446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.162844 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Pawn.prefab
+  artifactKey: Guid(cab5f13ae783c0e47bebde00fd0357a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Pawn.prefab using Guid(cab5f13ae783c0e47bebde00fd0357a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9376785879d28878d3242cac0cdd9a9c') in 0.019383 seconds
+  Import took 0.074307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.389557 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab
+  artifactKey: Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab using Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bada109bec50d3162121d91e73c81425') in 0.021715 seconds
+  Import took 0.025332 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001009 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.199 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1108 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.2 MB.
+System memory in use after: 60.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1566.
+Total: 2.597400 ms (FindLiveObjects: 0.320200 ms CreateObjectMapping: 0.099100 ms MarkObjects: 2.091800 ms  DeleteObjects: 0.083400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 569.552119 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '312a6d6305fa822b7f0ec0e6a4fef2c0') in 0.080270 seconds
+  Import took 0.082857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.187212 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22872090689379b2e14badebd35a90ac') in 0.013563 seconds
+  Import took 0.016682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.231519 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Horse.prefab
+  artifactKey: Guid(4957843483d9e93419739a06271621fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Horse.prefab using Guid(4957843483d9e93419739a06271621fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb380de71f1e2fbbf6d048ba00a504c9') in 0.010902 seconds
+  Import took 0.013798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.622325 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab
+  artifactKey: Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab using Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70877489c5ff804b61607a34e7195a32') in 0.018846 seconds
+  Import took 0.021900 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008475 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab
+  artifactKey: Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab using Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70877489c5ff804b61607a34e7195a32') in 0.012948 seconds
+  Import took 0.016150 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.151642 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab
+  artifactKey: Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab using Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bee7e849af812676b55a0554240cf28') in 0.013402 seconds
+  Import took 0.016040 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.894454 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone King.prefab
+  artifactKey: Guid(7e745f9e6c5f96f4ea60c54463617e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone King.prefab using Guid(7e745f9e6c5f96f4ea60c54463617e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '249a75ab058757206d4ca1af1909de62') in 0.012356 seconds
+  Import took 0.015273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.710886 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Bishop.prefab
+  artifactKey: Guid(9ddda65c1c1654147bbbdbdfcdb4881f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Bishop.prefab using Guid(9ddda65c1c1654147bbbdbdfcdb4881f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f616f7c33181d291c207a055e6ecb56a') in 0.012902 seconds
+  Import took 0.015534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.093556 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab
+  artifactKey: Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab using Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9abac311192ba6ddeec87aee4e90bc32') in 0.019368 seconds
+  Import took 0.022482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004174 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab
+  artifactKey: Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Horse.prefab using Guid(445932ffe01267d40803b3b1e02ec9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9abac311192ba6ddeec87aee4e90bc32') in 0.019475 seconds
+  Import took 0.023591 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.623943 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab
+  artifactKey: Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone King.prefab using Guid(279db6381e10dfa4ea1b4074d833bfb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad4ea8a6f2ce2a6ec2b9b583c1fbf08e') in 0.013103 seconds
+  Import took 0.015883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.459448 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Queen.prefab
+  artifactKey: Guid(03825e973280c7e4788ee0d1339abcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Queen.prefab using Guid(03825e973280c7e4788ee0d1339abcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '166250da591adb8e2cf382d4c670f111') in 0.013361 seconds
+  Import took 0.016116 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.567475 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8990d0c159f1a3e4616423c94c4d4c62') in 0.013551 seconds
+  Import took 0.016354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.383894 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14e508d9b5c5b46d8d59a0ce3ef66a86') in 0.014073 seconds
+  Import took 0.017089 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.530724 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab
+  artifactKey: Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Bishop.prefab using Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77ca7e563db8b233af13f18786068bc9') in 0.011888 seconds
+  Import took 0.015306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.646098 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab
+  artifactKey: Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/White Stone Rook.prefab using Guid(74c9f8e885fde444d8917ca97c841b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a201ac77f4dead2ad3d03d1408c1066') in 0.015736 seconds
+  Import took 0.018599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.529246 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab
+  artifactKey: Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Prefabs/Chess piece/Black Stone Pawn.prefab using Guid(e0c5356476a49ba449f2789ccdbf2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e888f3fb10869a0b1d4a4645be254da') in 0.012227 seconds
+  Import took 0.015081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.370498 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(910dae7e023b5de46b467e4722c05f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(910dae7e023b5de46b467e4722c05f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf73d9a88e0bc7be65880eec84f44ad') in 0.008185 seconds
+  Import took 0.010629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000517 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(910dae7e023b5de46b467e4722c05f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(910dae7e023b5de46b467e4722c05f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf73d9a88e0bc7be65880eec84f44ad') in 0.002129 seconds
+  Import took 0.005009 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.982420 seconds.
+  path: Assets/Scenes/Demo.unity
+  artifactKey: Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Demo.unity using Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fea8e0ba93e1fd2e8035a88ab16bdfeb') in 0.008897 seconds
+  Import took 0.011777 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.988287 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc5cef3852c107a9b79d0fa3d5526516') in 0.008544 seconds
+  Import took 0.012057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017308 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(46410c3e9e9919043bed62934e10c5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc5cef3852c107a9b79d0fa3d5526516') in 0.002722 seconds
+  Import took 0.005647 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.729235 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c981d9b7c705337224aaafb88b21d050') in 0.010420 seconds
+  Import took 0.042511 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.730828 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Readme Eng.txt
+  artifactKey: Guid(9077ef0a98d580e4c973d36e7cf1e1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Readme Eng.txt using Guid(9077ef0a98d580e4c973d36e7cf1e1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce854c7fd1e015ed0b3a441fd216617d') in 0.013458 seconds
+  Import took 0.015672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.788038 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Readme Eng.txt
+  artifactKey: Guid(9077ef0a98d580e4c973d36e7cf1e1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Readme Eng.txt using Guid(9077ef0a98d580e4c973d36e7cf1e1c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce854c7fd1e015ed0b3a441fd216617d') in 0.002559 seconds
+  Import took 0.005221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.092826 seconds.
+  path: Assets/Tiny Chess Stone Chess Piece/Textures
+  artifactKey: Guid(1c8d7d44f3d9bc7408a13f302222b7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Chess Stone Chess Piece/Textures using Guid(1c8d7d44f3d9bc7408a13f302222b7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a669ddad97e0aebf0407d43619d71abe') in 0.007864 seconds
+  Import took 0.010185 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.769432 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(16f9a249ffd7ad74d8ee4895cb7557ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(16f9a249ffd7ad74d8ee4895cb7557ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25eb0de3c0b4a88592ac5d599745662c') in 0.008334 seconds
+  Import took 0.010833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 178.351981 seconds.
+  path: Assets/Prefabs/Chess piece/Black Stone Bishop.prefab
+  artifactKey: Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Chess piece/Black Stone Bishop.prefab using Guid(c77f218d9ab1f424384acc3b86c56de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b79534e0f51f1fe8a28f1cefad39cc89') in 0.016014 seconds
+  Import took 0.019531 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
