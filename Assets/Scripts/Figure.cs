@@ -25,12 +25,14 @@ public class FigureData
     public int y;
     public Type type;
     public bool isWhite;
+    public int turnCount;
 
-    public FigureData(int x, int y, Type type, bool isWhite)
+    public FigureData(int x, int y, Type type, bool isWhite, int turnCount)
     {
         this.x = x;
         this.y = y;
         this.type = type;
         this.isWhite = isWhite;
+        this.turnCount = turnCount;
     }
 }

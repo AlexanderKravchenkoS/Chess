@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33961714295525734}
   - component: {fileID: 23756955892116760}
   - component: {fileID: 4697324730837334769}
+  - component: {fileID: 3843181137370172019}
   m_Layer: 0
   m_Name: KnightLight
   m_TagString: Untagged
@@ -99,3 +100,17 @@ MonoBehaviour:
     y: 0
     type: 0
     isWhite: 0
+--- !u!64 &3843181137370172019
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992623236052302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3d375d4a1907b3f4098bb64446492fed, type: 3}

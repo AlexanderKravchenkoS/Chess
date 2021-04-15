@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33667145997053058}
   - component: {fileID: 23923637149797032}
   - component: {fileID: -8243393720178380552}
+  - component: {fileID: 9196179213067773683}
   m_Layer: 0
   m_Name: RookLight
   m_TagString: Untagged
@@ -99,3 +100,17 @@ MonoBehaviour:
     y: 0
     type: 0
     isWhite: 0
+--- !u!64 &9196179213067773683
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971375302472462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 4c7fefe9f4d55e44398c01a6266ef093, type: 3}

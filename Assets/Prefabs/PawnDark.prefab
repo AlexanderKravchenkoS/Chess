@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33039705604623312}
   - component: {fileID: 23288229226541454}
   - component: {fileID: -1548859904774204987}
+  - component: {fileID: 8218141903390308529}
   m_Layer: 0
   m_Name: PawnDark
   m_TagString: Untagged
@@ -99,3 +100,17 @@ MonoBehaviour:
     y: 0
     type: 0
     isWhite: 0
+--- !u!64 &8218141903390308529
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867195236767680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 1ae3b6cad3254b848942cea678f244c7, type: 3}

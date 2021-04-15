@@ -21,8 +21,8 @@ public class Board : MonoBehaviour
     private Dictionary<Type, GameObject> WhitePrefabs;
     private Dictionary<Type, GameObject> BlackPrefabs;
     private BoardState boardState;
+    private Figure selectedFigure;
     public Figure[,] figures;
-    public List<FigureData> figureDatas;
 
     private void Awake()
     {
@@ -53,24 +53,76 @@ public class Board : MonoBehaviour
 
     private void Update()
     {
+        MakeTurn();
+    }
 
+    private void MakeTurn()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, LayerMask.GetMask("Board")))
+        {
+            Vector2Int mouseDownPosition =
+                new Vector2Int((int)(hit.point.x + 0.5), (int)(hit.point.z + 0.5));
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                var figure = hit.transform.gameObject.GetComponent<Figure>();
+                if (figure != null && figure.figureData.isWhite == boardState.isWhiteTurn)
+                {
+                    selectedFigure = figure;
+                }
+            }
+
+            if (selectedFigure != null)
+            {
+                selectedFigure.transform.position =
+                    new Vector3(mouseDownPosition.x, 2, mouseDownPosition.y);
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    Figure[] figuresOnBoard = FindObjectsOfType<Figure>();
+                    figures = new Figure[8, 8];
+                    foreach (var item in figuresOnBoard)
+                    {
+                        figures[item.figureData.x, item.figureData.y] = item;
+                    }
+                    if (Logic.isCorrectMove(figures, selectedFigure, mouseDownPosition))
+                    {
+                        if (Logic.isNeedToDestroy(figures, selectedFigure, mouseDownPosition,
+                            out Vector2Int destroyPosition))
+                        {
+                            Destroy(figures[destroyPosition.x, destroyPosition.y].gameObject);
+                            figures[destroyPosition.x, destroyPosition.y] = null;
+                        }
+
+                        figures[selectedFigure.figureData.x, selectedFigure.figureData.y] = null;
+                        selectedFigure.figureData.x = mouseDownPosition.x;
+                        selectedFigure.figureData.y = mouseDownPosition.y;
+                        selectedFigure.figureData.turnCount++;
+                        figures[mouseDownPosition.x, mouseDownPosition.y] = selectedFigure;
+                        boardState.isWhiteTurn = !boardState.isWhiteTurn;
+                    }
+
+                    selectedFigure.transform.position =
+                        new Vector3(selectedFigure.figureData.x, 0, selectedFigure.figureData.y);
+                    selectedFigure = null;
+                }
+            }
+        }
     }
 
     public void LoadGame(string path)
     {
         LoadBoard(path, ref boardState);
-        Figure[] ff = FindObjectsOfType<Figure>();
-        figures = new Figure[8, 8];
-        foreach (var item in ff)
-        {
-            figures[item.figureData.x, item.figureData.y] = item;
-        }
     }
 
     public void SaveGame()
     {
+        Figure[] figuresOnBoard = FindObjectsOfType<Figure>();
         boardState.figureDatas = new List<FigureData>();
-        foreach (var item in figures)
+
+        foreach (var item in figuresOnBoard)
         {
             if (item != null)
             {
@@ -151,7 +203,6 @@ public class Board : MonoBehaviour
         }
         var figure = Instantiate(figurePrefab, figurePos, transform.rotation, transform);
         figure.GetComponent<Figure>().figureData = figureData;
-        figureDatas.Add(figureData);
     }
 }
 
