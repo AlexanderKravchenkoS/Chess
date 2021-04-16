@@ -22,13 +22,13 @@
     {
       "x": 3,
       "y": 0,
-      "type": 2,
+      "type": 4,
       "isWhite": true
     },
     {
       "x": 4,
       "y": 0,
-      "type": 4,
+      "type": 2,
       "isWhite": true
     },
     {
@@ -118,13 +118,13 @@
     {
       "x": 3,
       "y": 7,
-      "type": 2,
+      "type": 4,
       "isWhite": false
     },
     {
       "x": 4,
       "y": 7,
-      "type": 4,
+      "type": 2,
       "isWhite": false
     },
     {

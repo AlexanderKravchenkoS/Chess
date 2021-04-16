@@ -100,6 +100,7 @@ MonoBehaviour:
     y: 0
     type: 0
     isWhite: 0
+    turnCount: 0
 --- !u!64 &527945116337695767
 MeshCollider:
   m_ObjectHideFlags: 0

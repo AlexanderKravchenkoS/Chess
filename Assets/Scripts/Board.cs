@@ -22,6 +22,7 @@ public class Board : MonoBehaviour
     private Dictionary<Type, GameObject> BlackPrefabs;
     private BoardState boardState;
     private Figure selectedFigure;
+    private bool isNotFinished = true;
     public Figure[,] figures;
 
     private void Awake()
@@ -53,7 +54,10 @@ public class Board : MonoBehaviour
 
     private void Update()
     {
-        MakeTurn();
+        if (isNotFinished)
+        {
+            MakeTurn();
+        }
     }
 
     private void MakeTurn()
@@ -87,8 +91,16 @@ public class Board : MonoBehaviour
                     {
                         figures[item.figureData.x, item.figureData.y] = item;
                     }
-                    if (Logic.isCorrectMove(figures, selectedFigure, mouseDownPosition))
+                    if (Logic.isCorrectMove(figures, selectedFigure, mouseDownPosition)
+                        && !Logic.isChecked(figures, selectedFigure, mouseDownPosition))
                     {
+                        if (Logic.isCastling(selectedFigure, mouseDownPosition,
+                            out Vector2Int rookStartPosition, out Vector2Int rookNewPosition))
+                        {
+                            figures[rookNewPosition.x, rookNewPosition.y] =
+                                figures[rookStartPosition.x, rookStartPosition.y];
+                            figures[rookStartPosition.x, rookStartPosition.y] = null;
+                        }
                         if (Logic.isNeedToDestroy(figures, selectedFigure, mouseDownPosition,
                             out Vector2Int destroyPosition))
                         {
@@ -102,6 +114,12 @@ public class Board : MonoBehaviour
                         selectedFigure.figureData.turnCount++;
                         figures[mouseDownPosition.x, mouseDownPosition.y] = selectedFigure;
                         boardState.isWhiteTurn = !boardState.isWhiteTurn;
+
+                        isNotFinished = Logic.isCheckAndMate(figures, boardState.isWhiteTurn);
+                        if (!isNotFinished)
+                        {
+                            Debug.Log("END FUCKING GAME");
+                        }
                     }
 
                     selectedFigure.transform.position =
@@ -114,7 +132,9 @@ public class Board : MonoBehaviour
 
     public void LoadGame(string path)
     {
-        LoadBoard(path, ref boardState);
+        string fullPath = Path.Combine(Application.streamingAssetsPath, path);
+        LoadBoard(fullPath, ref boardState);
+        isNotFinished = true;
     }
 
     public void SaveGame()
@@ -129,7 +149,8 @@ public class Board : MonoBehaviour
                 boardState.figureDatas.Add(item.figureData);
             }
         }
-        SaveBoard("previousGame.json", boardState);
+        string path = Path.Combine(Application.streamingAssetsPath, "previousGame.json");
+        SaveBoard(path, boardState);
     }
 
     private void SaveBoard(string path, BoardState boardState)
@@ -147,8 +168,7 @@ public class Board : MonoBehaviour
 
     private void SaveToJSON(string json, string path)
     {
-        string fullPath = Path.Combine(Application.streamingAssetsPath, path);
-        using (StreamWriter streamWriter = new StreamWriter(fullPath))
+        using (StreamWriter streamWriter = new StreamWriter(path))
         {
             streamWriter.Write(json);
         }
@@ -156,8 +176,7 @@ public class Board : MonoBehaviour
 
     private BoardState LoadFromJSON(string path)
     {
-        string fullPath = Path.Combine(Application.streamingAssetsPath, path);
-        using StreamReader reader = new StreamReader(fullPath);
+        using StreamReader reader = new StreamReader(path);
         string json = reader.ReadToEnd();
         BoardState boardState = JsonUtility.FromJson<BoardState>(json);
         return boardState;
