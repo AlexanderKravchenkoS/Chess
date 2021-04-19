@@ -5,193 +5,225 @@
       "x": 0,
       "y": 0,
       "type": 5,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 1,
       "y": 0,
       "type": 1,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 2,
       "y": 0,
       "type": 0,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 3,
       "y": 0,
       "type": 4,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 4,
       "y": 0,
       "type": 2,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 5,
       "y": 0,
       "type": 0,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 6,
       "y": 0,
       "type": 1,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 7,
       "y": 0,
       "type": 5,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 0,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 1,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 2,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 3,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 4,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 5,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 6,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 7,
       "y": 1,
       "type": 3,
-      "isWhite": true
+      "isWhite": true,
+      "turnCount": 0
     },
     {
       "x": 0,
       "y": 7,
       "type": 5,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 1,
       "y": 7,
       "type": 1,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 2,
       "y": 7,
       "type": 0,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 3,
       "y": 7,
       "type": 4,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 4,
       "y": 7,
       "type": 2,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 5,
       "y": 7,
       "type": 0,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 6,
       "y": 7,
       "type": 1,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 7,
       "y": 7,
       "type": 5,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 0,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 1,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 2,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 3,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 4,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 5,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 6,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     },
     {
       "x": 7,
       "y": 6,
       "type": 3,
-      "isWhite": false
+      "isWhite": false,
+      "turnCount": 0
     }
   ],
   "isWhiteTurn": true

@@ -4,25 +4,24 @@ using UnityEngine;
 
 public static class Logic
 {
+    private const int minBound = 0;
+    private const int maxBound = 7;
     public static bool isCorrectMove
-        (Figure[,] figuresOnBoard, Figure selectedFigure, Vector2Int finalPosition)
+        (Figure[,] figures, Figure selectedFigure, FigureData lastFigure, int newX, int newY)
     {
-        if (finalPosition.x < 0 || finalPosition.x > 7
-            || finalPosition.y < 0 || finalPosition.y > 7)
+        if (newX < minBound || newX > maxBound || newY < minBound || newY > maxBound)
         {
             return false;
         }
 
-        if (finalPosition.x == selectedFigure.figureData.x
-            && finalPosition.y == selectedFigure.figureData.y)
+        if (newX == selectedFigure.figureData.x && newY == selectedFigure.figureData.y)
         {
             return false;
         }
 
-        if (figuresOnBoard[finalPosition.x, finalPosition.y] != null)
+        if (figures[newX, newY] != null)
         {
-            if (selectedFigure.figureData.isWhite ==
-                figuresOnBoard[finalPosition.x, finalPosition.y].figureData.isWhite)
+            if (figures[newX, newY].figureData.isWhite == selectedFigure.figureData.isWhite)
             {
                 return false;
             }
@@ -30,27 +29,26 @@ public static class Logic
 
         bool result = false;
         bool figureOnWay = false;
-        int deltaX = Mathf.Abs(finalPosition.x - selectedFigure.figureData.x);
-        int deltaY = Mathf.Abs(finalPosition.y - selectedFigure.figureData.y);
-        int xMax = Mathf.Max(finalPosition.x, selectedFigure.figureData.x);
-        int yMax = Mathf.Max(finalPosition.y, selectedFigure.figureData.y);
-        int xMin = Mathf.Min(finalPosition.x, selectedFigure.figureData.x);
-        int yMin = Mathf.Min(finalPosition.y, selectedFigure.figureData.y);
-        int derictionX = (int)Mathf.Sign(finalPosition.x - selectedFigure.figureData.x);
-        int derictionY = (int)Mathf.Sign(finalPosition.y - selectedFigure.figureData.y);
+        int deltaX = newX - selectedFigure.figureData.x;
+        int deltaY = newY - selectedFigure.figureData.y;
+        int deltaXabs = Mathf.Abs(deltaX);
+        int deltaYabs = Mathf.Abs(deltaY);
+
         switch (selectedFigure.figureData.type)
         {
             case Type.Bishop:
                 #region Bishop
-                if (deltaX == deltaY)
+                if (deltaXabs == deltaYabs)
                 {
-                    for (int i = selectedFigure.figureData.x + derictionX;
-                        i < finalPosition.x; i += derictionX)
+                    int stepY = deltaY / deltaYabs;
+                    int stepX = deltaX / deltaXabs;
+                    for (int i = selectedFigure.figureData.x + stepX; i != newX; i += stepX)
                     {
-                        for (int j = selectedFigure.figureData.y + derictionY;
-                            j < finalPosition.y; j += derictionY)
+                        for (int j = selectedFigure.figureData.y + stepY; j != newY; j += stepY)
                         {
-                            if (i - selectedFigure.figureData.x == j - selectedFigure.figureData.y && figuresOnBoard[i, j] != null)
+                            if ((i - selectedFigure.figureData.x) * stepX ==
+                                (j - selectedFigure.figureData.y) * stepY
+                                && figures[i,j] != null && figureOnWay == false)
                             {
                                 figureOnWay = true;
                             }
@@ -63,26 +61,25 @@ public static class Logic
 
             case Type.King:
                 #region King
-                if ((deltaX == 1 && deltaY == 1)
-                    || (deltaX == 1 && deltaY == 0)
-                    || (deltaX == 0 && deltaY == 1))
+                if ((deltaXabs == 0 || deltaXabs == 1) && (deltaYabs == 0 || deltaYabs == 1))
                 {
                     result = true;
                 }
-                else if (deltaX == 2 && deltaY == 0 && selectedFigure.figureData.turnCount == 0
-                    && figuresOnBoard
-                    [finalPosition.x,(finalPosition.y - selectedFigure.figureData.y) / 2] == null)
+                else if (selectedFigure.figureData.turnCount == 0 && deltaYabs == 0
+                    && deltaXabs == 2)
                 {
-                    if (finalPosition.x == 3 && figuresOnBoard[0, finalPosition.y] != null)
+                    if (deltaX == 2 && figures[maxBound, newY] != null)
                     {
-                        if (figuresOnBoard[0, finalPosition.y].figureData.turnCount == 0)
+                        if (figures[maxBound, newY].figureData.type == Type.Rook
+                            && figures[maxBound, newY].figureData.turnCount == 0)
                         {
                             result = true;
                         }
                     }
-                    else if (finalPosition.x == 6 && figuresOnBoard[7, finalPosition.y] != null)
+                    else if (deltaX == -2 && figures[minBound, newY] != null)
                     {
-                        if (figuresOnBoard[7, finalPosition.y].figureData.turnCount == 0)
+                        if (figures[minBound, newY].figureData.type == Type.Rook
+                            && figures[minBound, newY].figureData.turnCount == 0)
                         {
                             result = true;
                         }
@@ -93,7 +90,7 @@ public static class Logic
 
             case Type.Knight:
                 #region Knight
-                if ((deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1))
+                if ((deltaXabs == 1 && deltaYabs == 2) || (deltaXabs == 2 && deltaYabs == 1))
                 {
                     result = true;
                 }
@@ -112,32 +109,25 @@ public static class Logic
                     direction = -1;
                 }
 
-                if (finalPosition.y - selectedFigure.figureData.y == direction * 2
-                    && deltaX == 0 && selectedFigure.figureData.turnCount == 0
-                    && figuresOnBoard[finalPosition.x, finalPosition.y] == null)
+                if (deltaX == 0 && deltaY == direction && figures[newX, newY] == null)
                 {
                     result = true;
                 }
-
-                else if (finalPosition.y - selectedFigure.figureData.y == direction
-                    && deltaX == 0 && figuresOnBoard[finalPosition.x, finalPosition.y] == null)
+                else if (deltaX == 0 && deltaY == (direction * 2) && figures[newX, newY] == null
+                    && figures[newX, newY - direction] == null
+                    && selectedFigure.figureData.turnCount == 0)
                 {
                     result = true;
                 }
-
-                else if (finalPosition.y - selectedFigure.figureData.y == direction
-                    && deltaX == 1)
+                else if (deltaXabs == 1 && deltaY == direction && figures[newX, newY] != null)
                 {
-                    if (figuresOnBoard[finalPosition.x, finalPosition.y] != null
-                        && figuresOnBoard[finalPosition.x, finalPosition.y].figureData.isWhite
-                        != selectedFigure.figureData.isWhite)
-                    {
-                        result = true;
-                    }
-
-                    else if (figuresOnBoard[finalPosition.x, selectedFigure.figureData.y] != null
-                        && figuresOnBoard[finalPosition.x, selectedFigure.figureData.y]
-                        .figureData.isWhite != selectedFigure.figureData.isWhite)
+                    result = true;
+                }
+                else if (deltaXabs == 1 && deltaY == direction && figures[newX, newY] == null
+                    && figures[newX, selectedFigure.figureData.y] != null)
+                {
+                    if (newX == lastFigure.x && selectedFigure.figureData.y == lastFigure.y
+                        && lastFigure.turnCount == 1)
                     {
                         result = true;
                     }
@@ -147,11 +137,31 @@ public static class Logic
 
             case Type.Queen:
                 #region Queen
-                if (deltaX == 0)
+                if (deltaXabs == deltaYabs)
                 {
-                    for (int j = yMin + 1; j < yMax; j++)
+                    int stepY = deltaY / deltaYabs;
+                    int stepX = deltaX / deltaXabs;
+                    for (int i = selectedFigure.figureData.x + stepX; i != newX; i += stepX)
                     {
-                        if (figuresOnBoard[finalPosition.x, j] != null)
+                        for (int j = selectedFigure.figureData.y + stepY; j != newY; j += stepY)
+                        {
+                            if ((i - selectedFigure.figureData.x) * stepX ==
+                                (j - selectedFigure.figureData.y) * stepY
+                                && figures[i, j] != null && figureOnWay == false)
+                            {
+                                figureOnWay = true;
+                            }
+                        }
+                    }
+                    result = !figureOnWay;
+                }
+
+                else if (deltaX == 0)
+                {
+                    int stepY = deltaY / deltaYabs;
+                    for (int j = selectedFigure.figureData.y + stepY; j != newY; j += stepY)
+                    {
+                        if (figureOnWay == false && figures[newX, j] != null)
                         {
                             figureOnWay = true;
                         }
@@ -161,35 +171,15 @@ public static class Logic
 
                 else if (deltaY == 0)
                 {
-                    for (int i = xMin + 1; i < xMax; i++)
+                    int stepX = deltaX / deltaXabs;
+                    for (int i = selectedFigure.figureData.x + stepX; i != newX; i += stepX)
                     {
-                        if (figuresOnBoard[i, finalPosition.y] != null)
+                        if (figureOnWay == false && figures[i, newY] != null)
                         {
                             figureOnWay = true;
                         }
                     }
                     result = !figureOnWay;
-                }
-
-                else if (deltaX == deltaY)
-                {
-                    for (int i = selectedFigure.figureData.x + derictionX;
-                        i < finalPosition.x; i += derictionX)
-                    {
-                        for (int j = selectedFigure.figureData.y + derictionY;
-                            j < finalPosition.y; j += derictionY)
-                        {
-                            if (i - selectedFigure.figureData.x == j - selectedFigure.figureData.y && figuresOnBoard[i, j] != null)
-                            {
-                                figureOnWay = true;
-                            }
-                        }
-                    }
-                    result = !figureOnWay;
-                }
-                else
-                {
-                    result = false;
                 }
                 break;
             #endregion
@@ -198,21 +188,22 @@ public static class Logic
                 #region Rook
                 if (deltaX == 0)
                 {
-                    for (int j = yMin + 1; j < yMax; j++)
+                    int stepY = deltaY / deltaYabs;
+                    for (int j = selectedFigure.figureData.y + stepY; j != newY; j += stepY)
                     {
-                        if (figuresOnBoard[finalPosition.x, j] != null)
+                        if (figureOnWay == false && figures[newX, j] != null)
                         {
                             figureOnWay = true;
                         }
                     }
                     result = !figureOnWay;
                 }
-
                 else if (deltaY == 0)
                 {
-                    for (int i = xMin + 1; i < xMax; i++)
+                    int stepX = deltaX / deltaXabs;
+                    for (int i = selectedFigure.figureData.x + stepX; i != newX; i += stepX)
                     {
-                        if (figuresOnBoard[i, finalPosition.y] != null)
+                        if (figureOnWay == false && figures[i, newY] != null)
                         {
                             figureOnWay = true;
                         }
@@ -220,156 +211,193 @@ public static class Logic
                     result = !figureOnWay;
                 }
                 break;
-                #endregion
+            #endregion
         }
+
         return result;
     }
 
-    public static bool isNeedToDestroy
-        (Figure[,] figuresOnBoard, Figure selectedFigure, Vector2Int finalPosition,
-        out Vector2Int destroyPosition)
+    public static bool isNeedToDestroy(Figure[,] figures, Figure selectedFigure,
+        int newX, int newY, out int destroyX, out int destroyY)
     {
-        if (figuresOnBoard[finalPosition.x, finalPosition.y] != null)
+        if (figures[newX, newY] != null)
         {
-            destroyPosition = finalPosition;
+            destroyX = newX;
+            destroyY = newY;
             return true;
         }
+
         if (selectedFigure.figureData.type == Type.Pawn
-            && Mathf.Abs(finalPosition.x - selectedFigure.figureData.x) == 1)
+            && Mathf.Abs(newX - selectedFigure.figureData.x) == 1)
         {
-            destroyPosition = new Vector2Int(finalPosition.x, selectedFigure.figureData.y);
+            destroyX = newX;
+            destroyY = selectedFigure.figureData.y;
             return true;
         }
-        destroyPosition = -Vector2Int.one;
+
+        destroyX = destroyY = 0;
         return false;
     }
 
-    public static bool isCastling
-        (Figure selectedFigure, Vector2Int finalPosition,
-        out Vector2Int rookStartPosition, out Vector2Int rookNewPosition)
+    public static bool isCastling(Figure selectedFigure, int newX,
+        out int rookOldX, out int rookNewX)
     {
-        int deltaX = Mathf.Abs(finalPosition.x - selectedFigure.figureData.x);
-        if (deltaX == 2)
+        if (selectedFigure.figureData.type == Type.King)
         {
-            if (finalPosition.x == 3)
+            int deltaX = Mathf.Abs(newX - selectedFigure.figureData.x);
+            if (deltaX == 2)
             {
-                rookStartPosition = new Vector2Int(0, finalPosition.y);
-                rookNewPosition = new Vector2Int(3, finalPosition.y);
-                return true;
-            }
-            else if (finalPosition.x == 6)
-            {
-                rookStartPosition = new Vector2Int(7, finalPosition.y);
-                rookNewPosition = new Vector2Int(5, finalPosition.y);
-                return true;
+                if (newX == 2)
+                {
+                    rookOldX = 0;
+                    rookNewX = 3;
+                    return true;
+                }
+                else if (newX == 6)
+                {
+                    rookOldX = 7;
+                    rookNewX = 5;
+                    return true;
+                }
             }
         }
-        rookStartPosition = -Vector2Int.one;
-        rookNewPosition = -Vector2Int.one;
+        rookNewX = rookOldX = 0;
         return false;
     }
 
     public static bool isChecked
-        (Figure[,] figuresOnBoard, Figure selectedFigure, Vector2Int finalPosition)
+        (Figure[,] figures, Figure selectedFigure, int newX, int newY)
     {
+        int originalX = selectedFigure.figureData.x;
+        int originalY = selectedFigure.figureData.y;
+        int turnCount = selectedFigure.figureData.turnCount;
         Figure king = null;
-        Figure[,] boardCopy = new Figure[8, 8];
+        Figure[,] boardCopy = new Figure[8,8];
+
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 8; j++)
             {
-                boardCopy[i, j] = figuresOnBoard[i, j];
+                if (figures[i,j] != null)
+                {
+                    boardCopy[i, j] = figures[i, j];
+                }
             }
         }
 
-        if (Logic.isNeedToDestroy(boardCopy, selectedFigure, finalPosition,
-            out Vector2Int destroyPosition))
+        if (Logic.isCastling(selectedFigure, newX, out int oldRookX, out int newRookX))
         {
-            boardCopy[destroyPosition.x, destroyPosition.y] = null;
+            boardCopy[oldRookX, newY].gameObject.transform.position =
+                new Vector3(newRookX, 0, newY);
+            boardCopy[oldRookX, newY].figureData.x = newRookX;
+            boardCopy[oldRookX, newY].figureData.turnCount++;
+            boardCopy[newRookX, newY] = figures[oldRookX, newY];
+            boardCopy[oldRookX, newY] = null;
+        }
+        else if (Logic.isNeedToDestroy(figures, selectedFigure, newX, newY,
+            out int destroyX, out int destoryY))
+        {
+            boardCopy[destroyX, destoryY] = null;
         }
 
         boardCopy[selectedFigure.figureData.x, selectedFigure.figureData.y] = null;
-        boardCopy[finalPosition.x, finalPosition.y] = selectedFigure;
-        boardCopy[finalPosition.x, finalPosition.y].figureData.x = finalPosition.x;
-        boardCopy[finalPosition.x, finalPosition.y].figureData.y = finalPosition.y;
+        selectedFigure.figureData.x = newX;
+        selectedFigure.figureData.y = newY;
+        selectedFigure.figureData.turnCount++;
+        boardCopy[newX, newY] = selectedFigure;
 
-        foreach (Figure figure in boardCopy)
+        FigureData lastFigure = selectedFigure.figureData;
+
+        foreach (var figure in boardCopy)
         {
             if (figure != null)
             {
                 if (figure.figureData.type == Type.King
-                && figure.figureData.isWhite == selectedFigure.figureData.isWhite)
+                    && figure.figureData.isWhite == selectedFigure.figureData.isWhite)
                 {
                     king = figure;
                 }
             }
         }
 
-        Vector2Int kingPosition = new Vector2Int(king.figureData.x, king.figureData.y);
+        int kingX = king.figureData.x;
+        int kingY = king.figureData.y;
 
-        foreach (Figure figure in boardCopy)
+        foreach (var figure in boardCopy)
         {
-            if (figure != null)
+            if (figure != null && figure.figureData.isWhite != king.figureData.isWhite)
             {
-                if (figure.figureData.isWhite != selectedFigure.figureData.isWhite)
+                if (isCorrectMove(boardCopy, figure, lastFigure, kingX, kingY))
                 {
-                    if (isCorrectMove(boardCopy, figure, kingPosition))
-                    {
-                        return true;
-                    }
+                    selectedFigure.figureData.x = originalX;
+                    selectedFigure.figureData.y = originalY;
+                    return true;
                 }
             }
         }
-
+        selectedFigure.figureData.x = originalX;
+        selectedFigure.figureData.y = originalY;
+        selectedFigure.figureData.turnCount = turnCount;
         return false;
     }
 
-    public static bool isCheckAndMate(Figure[,] figuresOnBoard, bool isWhite)
+    public static bool isCheckAndMate(Figure[,] figures, bool isWhite, FigureData lastFigure)
     {
         Figure king = null;
         Figure[,] boardCopy = new Figure[8, 8];
+
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 8; j++)
             {
-                boardCopy[i, j] = figuresOnBoard[i, j];
+                if (figures[i, j] != null)
+                {
+                    boardCopy[i, j] = figures[i, j];
+                }
             }
         }
 
-        foreach (Figure figure in boardCopy)
+        foreach (var figure in boardCopy)
         {
             if (figure != null)
             {
                 if (figure.figureData.type == Type.King
-                && figure.figureData.isWhite == isWhite)
+                    && figure.figureData.isWhite == isWhite)
                 {
                     king = figure;
                 }
             }
         }
 
-        Vector2Int kingPosition = new Vector2Int(king.figureData.x, king.figureData.y);
+        int kingX = king.figureData.x;
+        int kingY = king.figureData.y;
 
-        foreach (Figure figure in boardCopy)
+        foreach (var item in boardCopy)
         {
-            if (figure != null)
+            if (item != null && item.figureData.isWhite == isWhite)
             {
-                if (figure.figureData.isWhite == isWhite)
+                for (int i = 0; i < 8; i++)
                 {
-                    for (int i = 0; i < 8; i++)
+                    for (int j = 0; j < 8; j++)
                     {
-                        for (int j = 0; j < 8; j++)
+                        if (isCorrectMove(boardCopy, item, lastFigure, i, j)
+                            && !isChecked(boardCopy, item, i, j))
                         {
-                            Vector2Int position = new Vector2Int(i, j);
-                            if (Logic.isCorrectMove(boardCopy, figure, position)
-                                && !Logic.isChecked(boardCopy, figure, position))
-                            {
-                                return true;
-                            }
+                            return false;
                         }
                     }
                 }
             }
+        }
+        return true;
+    }
+
+    public static bool isPawnInTheEnd(FigureData selectedFigure)
+    {
+        if (selectedFigure.type == Type.Pawn && (selectedFigure.y == minBound
+            || selectedFigure.y == maxBound))
+        {
+            return true;
         }
         return false;
     }

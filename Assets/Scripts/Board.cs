@@ -18,12 +18,20 @@ public class Board : MonoBehaviour
     [SerializeField] private GameObject whitePawn;
     [SerializeField] private GameObject whiteQueen;
     [SerializeField] private GameObject whiteRook;
+    [SerializeField] private GameObject MainCanvas;
+    [SerializeField] private GameObject SelectCanvas;
+    [SerializeField] private GameObject Highlighter;
     private Dictionary<Type, GameObject> WhitePrefabs;
     private Dictionary<Type, GameObject> BlackPrefabs;
     private BoardState boardState;
     private Figure selectedFigure;
-    private bool isNotFinished = true;
-    public Figure[,] figures;
+    private Figure pawnToDestroy;
+    private FigureData lastFigure = null;
+    private bool isRunning = true;
+    private string newGamePath;
+    private string previousGamePath;
+    private const float highlihterY = 0.01f;
+    private const float selectedFigureY = 2f;
 
     private void Awake()
     {
@@ -45,16 +53,26 @@ public class Board : MonoBehaviour
             {Type.Queen, blackQueen},
             {Type.Rook, blackRook}
         };
+        newGamePath = Application.persistentDataPath + "/newGame.json";
+        previousGamePath = Application.persistentDataPath + "/previousGame.json";
+        if (!File.Exists(newGamePath))
+        {
+            using StreamReader reader = new StreamReader
+                (Path.Combine(Application.streamingAssetsPath, "newGame.json"));
+            string json = reader.ReadToEnd();
+            File.WriteAllText(newGamePath, json);
+        }
     }
 
     private void Start()
     {
-
+        MainCanvas.SetActive(true);
+        SelectCanvas.SetActive(false);
     }
 
     private void Update()
     {
-        if (isNotFinished)
+        if (isRunning)
         {
             MakeTurn();
         }
@@ -66,8 +84,11 @@ public class Board : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, LayerMask.GetMask("Board")))
         {
-            Vector2Int mouseDownPosition =
-                new Vector2Int((int)(hit.point.x + 0.5), (int)(hit.point.z + 0.5));
+            int mouseX = (int)(hit.point.x + 0.5);
+            int mouseY = (int)(hit.point.z + 0.5);
+
+            Highlighter.SetActive(true);
+            Highlighter.transform.position = new Vector3(mouseX, highlihterY, mouseY);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -80,77 +101,80 @@ public class Board : MonoBehaviour
 
             if (selectedFigure != null)
             {
-                selectedFigure.transform.position =
-                    new Vector3(mouseDownPosition.x, 2, mouseDownPosition.y);
+                selectedFigure.transform.position = new Vector3(mouseX, selectedFigureY, mouseY);
 
                 if (Input.GetMouseButtonUp(0))
                 {
+                    Figure[,] figures = new Figure[8, 8];
                     Figure[] figuresOnBoard = FindObjectsOfType<Figure>();
-                    figures = new Figure[8, 8];
                     foreach (var item in figuresOnBoard)
                     {
-                        figures[item.figureData.x, item.figureData.y] = item;
-                    }
-                    if (Logic.isCorrectMove(figures, selectedFigure, mouseDownPosition)
-                        && !Logic.isChecked(figures, selectedFigure, mouseDownPosition))
-                    {
-                        if (Logic.isCastling(selectedFigure, mouseDownPosition,
-                            out Vector2Int rookStartPosition, out Vector2Int rookNewPosition))
+                        if (item != null)
                         {
-                            figures[rookNewPosition.x, rookNewPosition.y] =
-                                figures[rookStartPosition.x, rookStartPosition.y];
-                            figures[rookStartPosition.x, rookStartPosition.y] = null;
+                            figures[item.figureData.x, item.figureData.y] = item;
                         }
-                        if (Logic.isNeedToDestroy(figures, selectedFigure, mouseDownPosition,
-                            out Vector2Int destroyPosition))
+                    }
+
+                    if (Logic.isCorrectMove(figures, selectedFigure, lastFigure, mouseX, mouseY)
+                        && !Logic.isChecked(figures, selectedFigure, mouseX, mouseY))
+                    {
+                        if (Logic.isCastling(selectedFigure,mouseX, out int oldX, out int newX))
                         {
-                            Destroy(figures[destroyPosition.x, destroyPosition.y].gameObject);
-                            figures[destroyPosition.x, destroyPosition.y] = null;
+                            figures[oldX, mouseY].gameObject.transform.position =
+                                new Vector3(newX, 0, mouseY);
+                            figures[oldX, mouseY].figureData.x = newX;
+                            figures[oldX, mouseY].figureData.turnCount++;
+                            figures[newX, mouseY] = figures[oldX, mouseY];
+                            figures[oldX, mouseY] = null;
+                        }
+                        else if (Logic.isNeedToDestroy(figures, selectedFigure, mouseX, mouseY,
+                            out int destroyX, out int destoryY))
+                        {
+                            Destroy(figures[destroyX, destoryY].gameObject);
+                            figures[destroyX, destoryY] = null;
                         }
 
                         figures[selectedFigure.figureData.x, selectedFigure.figureData.y] = null;
-                        selectedFigure.figureData.x = mouseDownPosition.x;
-                        selectedFigure.figureData.y = mouseDownPosition.y;
+                        selectedFigure.figureData.x = mouseX;
+                        selectedFigure.figureData.y = mouseY;
                         selectedFigure.figureData.turnCount++;
-                        figures[mouseDownPosition.x, mouseDownPosition.y] = selectedFigure;
+                        figures[mouseX, mouseY] = selectedFigure;
+
+                        lastFigure = selectedFigure.figureData;
                         boardState.isWhiteTurn = !boardState.isWhiteTurn;
 
-                        isNotFinished = Logic.isCheckAndMate(figures, boardState.isWhiteTurn);
-                        if (!isNotFinished)
+                        if (Logic.isPawnInTheEnd(lastFigure))
                         {
-                            Debug.Log("END FUCKING GAME");
+                            isRunning = false;
+                            MainCanvas.SetActive(false);
+                            SelectCanvas.SetActive(true);
+                            pawnToDestroy = selectedFigure;
+                        }
+
+                        if (Logic.isCheckAndMate(figures, boardState.isWhiteTurn, lastFigure))
+                        {
+                            isRunning = false;
+                            if (boardState.isWhiteTurn)
+                            {
+                                Debug.Log("Black Win");
+                            }
+                            else
+                            {
+                                Debug.Log("White Win");
+                            }
                         }
                     }
 
-                    selectedFigure.transform.position =
-                        new Vector3(selectedFigure.figureData.x, 0, selectedFigure.figureData.y);
+                    selectedFigure.transform.position = new Vector3
+                        (selectedFigure.figureData.x, 0, selectedFigure.figureData.y);
                     selectedFigure = null;
                 }
             }
         }
-    }
-
-    public void LoadGame(string path)
-    {
-        string fullPath = Path.Combine(Application.streamingAssetsPath, path);
-        LoadBoard(fullPath, ref boardState);
-        isNotFinished = true;
-    }
-
-    public void SaveGame()
-    {
-        Figure[] figuresOnBoard = FindObjectsOfType<Figure>();
-        boardState.figureDatas = new List<FigureData>();
-
-        foreach (var item in figuresOnBoard)
+        else
         {
-            if (item != null)
-            {
-                boardState.figureDatas.Add(item.figureData);
-            }
+            Highlighter.SetActive(false);
         }
-        string path = Path.Combine(Application.streamingAssetsPath, "previousGame.json");
-        SaveBoard(path, boardState);
     }
 
     private void SaveBoard(string path, BoardState boardState)
@@ -176,9 +200,13 @@ public class Board : MonoBehaviour
 
     private BoardState LoadFromJSON(string path)
     {
-        using StreamReader reader = new StreamReader(path);
-        string json = reader.ReadToEnd();
-        BoardState boardState = JsonUtility.FromJson<BoardState>(json);
+        BoardState boardState = new BoardState();
+        if (File.Exists(path))
+        {
+            using StreamReader reader = new StreamReader(path);
+            string json = reader.ReadToEnd();
+            boardState = JsonUtility.FromJson<BoardState>(json);
+        }
         return boardState;
     }
 
@@ -190,9 +218,12 @@ public class Board : MonoBehaviour
 
     private void GenerateBoard(BoardState boardState)
     {
-        foreach (var item in boardState.figureDatas)
+        if (boardState.figureDatas != null)
         {
-            AddFigure(item);
+            foreach (var item in boardState.figureDatas)
+            {
+                AddFigure(item);
+            }
         }
     }
 
@@ -220,8 +251,69 @@ public class Board : MonoBehaviour
         {
             figurePrefab = BlackPrefabs[figureData.type];
         }
-        var figure = Instantiate(figurePrefab, figurePos, transform.rotation, transform);
+        var figure =
+            Instantiate(figurePrefab, figurePos, figurePrefab.transform.rotation, transform);
         figure.GetComponent<Figure>().figureData = figureData;
+    }
+
+    public void SaveGame()
+    {
+        Figure[] figuresOnBoard = FindObjectsOfType<Figure>();
+        boardState.lastFigure = lastFigure;
+        boardState.figureDatas = new List<FigureData>();
+        foreach (var item in figuresOnBoard)
+        {
+            if (item != null)
+            {
+                boardState.figureDatas.Add(item.figureData);
+            }
+        }
+        SaveBoard(previousGamePath, boardState);
+    }
+
+    public void LoadPreviousGame()
+    {
+        LoadBoard(previousGamePath, ref boardState);
+        lastFigure = boardState.lastFigure;
+        isRunning = true;
+    }
+
+    public void LoadNewGame()
+    {
+        LoadBoard(newGamePath, ref boardState);
+        lastFigure = boardState.lastFigure;
+        isRunning = true;
+    }
+
+    public void CreateQueen()
+    {
+        DestroyPawnAndCreateFigure(Type.Queen);
+    }
+
+    public void CreateKnight()
+    {
+        DestroyPawnAndCreateFigure(Type.Knight);
+    }
+
+    public void CreateBishop()
+    {
+        DestroyPawnAndCreateFigure(Type.Bishop);
+    }
+
+    public void CreateRook()
+    {
+        DestroyPawnAndCreateFigure(Type.Rook);
+    }
+
+    private void DestroyPawnAndCreateFigure(Type type)
+    {
+        Destroy(pawnToDestroy.gameObject);
+        pawnToDestroy = null;
+        lastFigure.type = type;
+        AddFigure(lastFigure);
+        isRunning = true;
+        MainCanvas.SetActive(true);
+        SelectCanvas.SetActive(false);
     }
 }
 
@@ -229,5 +321,6 @@ public class Board : MonoBehaviour
 public struct BoardState
 {
     public List<FigureData> figureDatas;
+    public FigureData lastFigure;
     public bool isWhiteTurn;
 }
