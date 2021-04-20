@@ -341,10 +341,11 @@ public static class Logic
         return false;
     }
 
-    public static bool isCheckAndMate(Figure[,] figures, bool isWhite, FigureData lastFigure)
+    public static GameState isMateOrDraw(Figure[,] figures, bool isWhite, FigureData lastFigure)
     {
         Figure king = null;
         Figure[,] boardCopy = new Figure[8, 8];
+        bool check = false;
 
         for (int i = 0; i < 8; i++)
         {
@@ -374,6 +375,16 @@ public static class Logic
 
         foreach (var item in boardCopy)
         {
+            if (item != null && item.figureData.isWhite != isWhite
+                && isCorrectMove(boardCopy, item, lastFigure, kingX, kingY))
+            {
+                check = true;
+                break;
+            }
+        }
+
+        foreach (var item in boardCopy)
+        {
             if (item != null && item.figureData.isWhite == isWhite)
             {
                 for (int i = 0; i < 8; i++)
@@ -383,13 +394,20 @@ public static class Logic
                         if (isCorrectMove(boardCopy, item, lastFigure, i, j)
                             && !isChecked(boardCopy, item, i, j))
                         {
-                            return false;
+                            return GameState.Running;
                         }
                     }
                 }
             }
         }
-        return true;
+        if (check)
+        {
+            return GameState.Mate;
+        }
+        else
+        {
+            return GameState.Draw;
+        }
     }
 
     public static bool isPawnInTheEnd(FigureData selectedFigure)

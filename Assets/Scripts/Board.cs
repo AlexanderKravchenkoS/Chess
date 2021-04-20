@@ -27,7 +27,7 @@ public class Board : MonoBehaviour
     private Figure selectedFigure;
     private Figure pawnToDestroy;
     private FigureData lastFigure = null;
-    private bool isRunning = true;
+    private GameState gameState = GameState.Running;
     private string newGamePath;
     private string previousGamePath;
     private const float highlihterY = 0.01f;
@@ -72,7 +72,7 @@ public class Board : MonoBehaviour
 
     private void Update()
     {
-        if (isRunning)
+        if (gameState == GameState.Running)
         {
             MakeTurn();
         }
@@ -145,15 +145,20 @@ public class Board : MonoBehaviour
 
                         if (Logic.isPawnInTheEnd(lastFigure))
                         {
-                            isRunning = false;
+                            gameState = GameState.Stopped;
                             MainCanvas.SetActive(false);
                             SelectCanvas.SetActive(true);
                             pawnToDestroy = selectedFigure;
                         }
 
-                        if (Logic.isCheckAndMate(figures, boardState.isWhiteTurn, lastFigure))
+                        gameState =
+                            Logic.isMateOrDraw(figures, boardState.isWhiteTurn, lastFigure);
+                        if (gameState == GameState.Draw)
                         {
-                            isRunning = false;
+                            Debug.Log("Draw");
+                        }
+                        else if (gameState == GameState.Mate)
+                        {
                             if (boardState.isWhiteTurn)
                             {
                                 Debug.Log("Black Win");
@@ -275,14 +280,14 @@ public class Board : MonoBehaviour
     {
         LoadBoard(previousGamePath, ref boardState);
         lastFigure = boardState.lastFigure;
-        isRunning = true;
+        gameState = GameState.Running;
     }
 
     public void LoadNewGame()
     {
         LoadBoard(newGamePath, ref boardState);
         lastFigure = boardState.lastFigure;
-        isRunning = true;
+        gameState = GameState.Running;
     }
 
     public void CreateQueen()
@@ -311,7 +316,7 @@ public class Board : MonoBehaviour
         pawnToDestroy = null;
         lastFigure.type = type;
         AddFigure(lastFigure);
-        isRunning = true;
+        gameState = GameState.Running;
         MainCanvas.SetActive(true);
         SelectCanvas.SetActive(false);
     }
@@ -323,4 +328,12 @@ public struct BoardState
     public List<FigureData> figureDatas;
     public FigureData lastFigure;
     public bool isWhiteTurn;
+}
+
+public enum GameState
+{
+    Running,
+    Stopped,
+    Mate,
+    Draw
 }
