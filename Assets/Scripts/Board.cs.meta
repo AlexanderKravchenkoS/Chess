@@ -3,7 +3,24 @@ guid: 6cd2ca6c960c57545b49617ca561ff98
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blackBishop: {fileID: 1672242659374470, guid: f005021ceced8b240983e71a3d481180, type: 3}
+  - blackKnight: {fileID: 1179637952412708, guid: a007978aa14da3945b0f6655f65cc278, type: 3}
+  - blackKing: {fileID: 1810274083847610, guid: 309659d4eb727d74d91c4875a85edc00, type: 3}
+  - blackPawn: {fileID: 1867195236767680, guid: b1d95c04dd54e434aa65855a0f77d30f, type: 3}
+  - blackQueen: {fileID: 1471985601831630, guid: 664a4dc6e997f5f47a9233db911328ac, type: 3}
+  - blackRook: {fileID: 1211746330687442, guid: a72c2cd1520039b4084a4a33dfeccf7e, type: 3}
+  - whiteBishop: {fileID: 1028868664329696, guid: 1c0f2faf14460a5478057fd4e0575576, type: 3}
+  - whiteKnight: {fileID: 1992623236052302, guid: 85ad2c556fdbd5747ac7f5f67f10e59b, type: 3}
+  - whiteKing: {fileID: 1389686872840900, guid: 27d2608cb94ae2d44811af52793c3562, type: 3}
+  - whitePawn: {fileID: 1867195236767680, guid: b1d95c04dd54e434aa65855a0f77d30f, type: 3}
+  - whiteQueen: {fileID: 1945632463053948, guid: be3573ba2ba53ea4f8979e64874c493d, type: 3}
+  - whiteRook: {fileID: 1971375302472462, guid: f1fc282519e5c4a4daaa864f9c3d446f, type: 3}
+  - MainMenuCanvas: {fileID: 3133144369228847028, guid: 3e7bfb2a8c42d0a43b78a5624c9fea84, type: 3}
+  - PauseCanvas: {fileID: 6736367911325260594, guid: a75c37ba4b874ea40a23329ebb482f48, type: 3}
+  - SelectCanvas: {fileID: 6216583661167579442, guid: 0d81ce48316fa2648a0c62694b038006, type: 3}
+  - ErrorCanvas: {fileID: 6840377870093358009, guid: 88d600173a012774db94e41abeb0d4c1, type: 3}
+  - Highlighter: {fileID: 982485748160681434, guid: 57d4adfaa6978bf43842a090978c1fa4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

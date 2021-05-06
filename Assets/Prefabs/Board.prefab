@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 33947028459393194}
   - component: {fileID: 23738020000439864}
   - component: {fileID: -3253153593733383274}
-  m_Layer: 0
+  - component: {fileID: 1074430385}
+  - component: {fileID: 1074430381}
+  m_Layer: 6
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4363527306552524
 Transform:
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857998089916902}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -96,3 +98,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.000001, y: 0.6661413, z: 10.000001}
   m_Center: {x: 3.4999995, y: -0.21688165, z: 3.5000005}
+--- !u!65 &1074430385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857998089916902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 0.6661413, z: 10.000001}
+  m_Center: {x: 3.4999995, y: -0.21688165, z: 3.5000005}
+--- !u!114 &1074430381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857998089916902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd2ca6c960c57545b49617ca561ff98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackBishop: {fileID: 1672242659374470, guid: f005021ceced8b240983e71a3d481180, type: 3}
+  blackKnight: {fileID: 1179637952412708, guid: a007978aa14da3945b0f6655f65cc278, type: 3}
+  blackKing: {fileID: 1810274083847610, guid: 309659d4eb727d74d91c4875a85edc00, type: 3}
+  blackPawn: {fileID: 1867195236767680, guid: b1d95c04dd54e434aa65855a0f77d30f, type: 3}
+  blackQueen: {fileID: 1471985601831630, guid: 664a4dc6e997f5f47a9233db911328ac, type: 3}
+  blackRook: {fileID: 1211746330687442, guid: a72c2cd1520039b4084a4a33dfeccf7e, type: 3}
+  whiteBishop: {fileID: 1028868664329696, guid: 1c0f2faf14460a5478057fd4e0575576, type: 3}
+  whiteKnight: {fileID: 1992623236052302, guid: 85ad2c556fdbd5747ac7f5f67f10e59b, type: 3}
+  whiteKing: {fileID: 1389686872840900, guid: 27d2608cb94ae2d44811af52793c3562, type: 3}
+  whitePawn: {fileID: 1006356879557798, guid: 391882f14be491c40962add653844907, type: 3}
+  whiteQueen: {fileID: 1945632463053948, guid: be3573ba2ba53ea4f8979e64874c493d, type: 3}
+  whiteRook: {fileID: 1971375302472462, guid: f1fc282519e5c4a4daaa864f9c3d446f, type: 3}
+  MainMenuCanvas: {fileID: 0}
+  PauseCanvas: {fileID: 0}
+  SelectCanvas: {fileID: 0}
+  ErrorCanvas: {fileID: 0}
+  Highlighter: {fileID: 982485748160681434, guid: 57d4adfaa6978bf43842a090978c1fa4, type: 3}

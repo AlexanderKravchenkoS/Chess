@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.UI;
+using TMPro;
 
 public class Board : MonoBehaviour
 {
@@ -12,22 +14,32 @@ public class Board : MonoBehaviour
     [SerializeField] private GameObject blackPawn;
     [SerializeField] private GameObject blackQueen;
     [SerializeField] private GameObject blackRook;
+
     [SerializeField] private GameObject whiteBishop;
     [SerializeField] private GameObject whiteKnight;
     [SerializeField] private GameObject whiteKing;
     [SerializeField] private GameObject whitePawn;
     [SerializeField] private GameObject whiteQueen;
     [SerializeField] private GameObject whiteRook;
-    [SerializeField] private GameObject MainCanvas;
+
+    [SerializeField] private GameObject MainMenuCanvas;
+    [SerializeField] private GameObject PauseCanvas;
     [SerializeField] private GameObject SelectCanvas;
+    [SerializeField] private GameObject ErrorCanvas;
+
     [SerializeField] private GameObject Highlighter;
+
     private Dictionary<Type, GameObject> WhitePrefabs;
     private Dictionary<Type, GameObject> BlackPrefabs;
+
     private BoardState boardState;
+
     private Figure selectedFigure;
     private Figure pawnToDestroy;
     private FigureData lastFigure = null;
+
     private GameState gameState = GameState.Running;
+
     private string newGamePath;
     private string previousGamePath;
     private const float highlihterY = 0.01f;
@@ -53,8 +65,10 @@ public class Board : MonoBehaviour
             {Type.Queen, blackQueen},
             {Type.Rook, blackRook}
         };
+
         newGamePath = Application.persistentDataPath + "/newGame.json";
         previousGamePath = Application.persistentDataPath + "/previousGame.json";
+
         if (!File.Exists(newGamePath))
         {
             using StreamReader reader = new StreamReader
@@ -66,8 +80,11 @@ public class Board : MonoBehaviour
 
     private void Start()
     {
-        MainCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(true);
+        PauseCanvas.SetActive(false);
+        ErrorCanvas.SetActive(false);
         SelectCanvas.SetActive(false);
+        gameState = GameState.Paused;
     }
 
     private void Update()
@@ -75,6 +92,11 @@ public class Board : MonoBehaviour
         if (gameState == GameState.Running)
         {
             MakeTurn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            gameState = GameState.Paused;
+            PauseCanvas.SetActive(true);
         }
     }
 
@@ -146,26 +168,31 @@ public class Board : MonoBehaviour
                         if (Logic.isPawnInTheEnd(lastFigure))
                         {
                             gameState = GameState.Stopped;
-                            MainCanvas.SetActive(false);
                             SelectCanvas.SetActive(true);
                             pawnToDestroy = selectedFigure;
                         }
 
-                        gameState =
+                        var newGameState =
                             Logic.isMateOrDraw(figures, boardState.isWhiteTurn, lastFigure);
-                        if (gameState == GameState.Draw)
+
+                        if (newGameState == GameState.Draw)
                         {
-                            Debug.Log("Draw");
+                            gameState = GameState.Draw;
+                            MainMenuCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Draw";
+                            MainMenuCanvas.SetActive(true);
                         }
-                        else if (gameState == GameState.Mate)
+                        else if (newGameState == GameState.Mate)
                         {
+                            gameState = GameState.Mate;
                             if (boardState.isWhiteTurn)
                             {
-                                Debug.Log("Black Win");
+                                MainMenuCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Black Win";
+                                MainMenuCanvas.SetActive(true);
                             }
                             else
                             {
-                                Debug.Log("White Win");
+                                MainMenuCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "White Win";
+                                MainMenuCanvas.SetActive(true);
                             }
                         }
                     }
@@ -278,9 +305,15 @@ public class Board : MonoBehaviour
 
     public void LoadPreviousGame()
     {
-        LoadBoard(previousGamePath, ref boardState);
-        lastFigure = boardState.lastFigure;
-        gameState = GameState.Running;
+        if (!File.Exists(previousGamePath)) {
+            ErrorCanvas.SetActive(true);
+        } else {
+            LoadBoard(previousGamePath, ref boardState);
+            lastFigure = boardState.lastFigure;
+            gameState = GameState.Running;
+            MainMenuCanvas.SetActive(false);
+            PauseCanvas.SetActive(false);
+        }
     }
 
     public void LoadNewGame()
@@ -288,6 +321,16 @@ public class Board : MonoBehaviour
         LoadBoard(newGamePath, ref boardState);
         lastFigure = boardState.lastFigure;
         gameState = GameState.Running;
+        MainMenuCanvas.SetActive(false);
+        PauseCanvas.SetActive(false);
+    }
+
+    public void CloseError() {
+        ErrorCanvas.SetActive(false);
+    }
+
+    public void Exit() {
+        Application.Quit();
     }
 
     public void CreateQueen()
@@ -317,7 +360,6 @@ public class Board : MonoBehaviour
         lastFigure.type = type;
         AddFigure(lastFigure);
         gameState = GameState.Running;
-        MainCanvas.SetActive(true);
         SelectCanvas.SetActive(false);
     }
 }
@@ -332,6 +374,7 @@ public struct BoardState
 
 public enum GameState
 {
+    Paused,
     Running,
     Stopped,
     Mate,
