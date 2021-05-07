@@ -38,7 +38,8 @@ public class Board : MonoBehaviour
     private Figure pawnToDestroy;
     private FigureData lastFigure = null;
 
-    private GameState gameState = GameState.Running;
+    private GameState gameState;
+    private GameState previuosState;
 
     private string newGamePath;
     private string previousGamePath;
@@ -94,9 +95,15 @@ public class Board : MonoBehaviour
             MakeTurn();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            gameState = GameState.Paused;
-            PauseCanvas.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Escape) && MainMenuCanvas.activeSelf != true) {
+            if (PauseCanvas.activeSelf == false) {
+                previuosState = gameState;
+                gameState = GameState.Paused;
+                PauseCanvas.SetActive(true);
+            } else {
+                gameState = previuosState;
+                PauseCanvas.SetActive(false);
+            }
         }
     }
 
