@@ -139,4 +139,4 @@ MonoBehaviour:
   PauseCanvas: {fileID: 0}
   SelectCanvas: {fileID: 0}
   ErrorCanvas: {fileID: 0}
-  Highlighter: {fileID: 982485748160681434, guid: 57d4adfaa6978bf43842a090978c1fa4, type: 3}
+  Highlighter: {fileID: 0}
